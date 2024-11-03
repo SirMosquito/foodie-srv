@@ -1,7 +1,7 @@
 package com.foodie.resources;
 
-import com.foodie.daos.RestaurantRepository;
-import com.foodie.entities.Restaurant;
+import com.foodie.daos.restaurant.RestaurantRepository;
+import com.foodie.entities.restaurant.RestaurantEntity;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -26,7 +26,7 @@ public class RestaurantResource {
 
 
     @GET
-    public Uni<List<Restaurant>> getRestaurant() {
+    public Uni<List<RestaurantEntity>> getRestaurant() {
         return restaurantRepository.listAll();
     }
 }

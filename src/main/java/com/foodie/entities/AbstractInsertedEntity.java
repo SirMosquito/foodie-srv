@@ -1,13 +1,18 @@
 package com.foodie.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 
 import java.time.LocalDateTime;
 
+@MappedSuperclass
 public abstract class AbstractInsertedEntity {
 
-    private LocalDateTime insertedOn;
-    private String insertedBy;
+    @Column(name = "inserted_on", nullable = false, updatable = false)
+    protected LocalDateTime insertedOn;
+    @Column(name = "inserted_by", nullable = false, updatable = false)
+    protected String insertedBy;
 
     @PrePersist
     public void prePersist() {
